@@ -4,23 +4,45 @@ body, html {
   height: 100%;
 }
 
-.image-container {
-  position: relative;
+.taskbar {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
+  height: 60px;
+  background-color: rgba(51, 51, 51, 0.7); /* 70% opaque, dark gray background */
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  box-sizing: border-box;
+  z-index: 1000;
+}
+
+.taskbar-icon {
+  height: 50px; /* Adjust this value to make the logo bigger */
+  width: auto;
+  margin-right: 10px;
+}
+
+.taskbar-title {
+  font-family: 'Verdana'; /* font family */
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+
+.content {
   height: 100%;
+  position: relative;
 }
 
 .background-image {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-.overlay-image {
-  position: absolute;
-  top: 20px; /* Adjust this value to move the image down from the top */
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100px; /* Adjust the size as needed */
-  height: auto;
+  z-index: -1; /* Place the background image behind the taskbar */
 }
