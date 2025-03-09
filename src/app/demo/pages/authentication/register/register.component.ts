@@ -51,7 +51,7 @@ export default class RegisterComponent {
 
     let newUser = this.authService.register(this.register)
     console.log(newUser);
-    if (newUser.err != "") {
+    if (newUser.err == "") {
       this.utilService.redirect_page_to("/default")
     } else {
       this.handleError(newUser.err)
