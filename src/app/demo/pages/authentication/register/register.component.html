@@ -14,34 +14,33 @@
               </div>
             </div>
           </div>
-          <button type="button" class="btn mt-2 btn-light-primary bg-light text-muted" style="width: 100%">
-            <img src="assets/images/authentication/google-icon.svg" alt="google" />
-            Sign Up With Google
-          </button>
-          <div class="saprator mt-3">
-            <span>or</span>
-          </div>
-          <h5 class="my-4 d-flex justify-content-center">Sign Up with Email address</h5>
+          <div class="alert alert-danger" *ngIf="errFlag">
+             <h5 class="d-flex justify-content-center">{{errMsg}}</h5>
+           </div>
           <div class="row">
             <div class="col-md-6">
               <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" />
+                <input type="text" class="form-control" id="firstInput" [(ngModel)]="register.firstName"/>
                 <label for="floatingInput">First Name</label>
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" />
+                <input type="text" class="form-control" id="lastInput" [(ngModel)]="register.lastName"/>
                 <label for="floatingInput">Last Name</label>
               </div>
             </div>
           </div>
           <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" />
-            <label for="floatingInput">Email Address / Username</label>
+            <input type="text" class="form-control" id="usernameInput" [(ngModel)]="register.username"/>
+            <label for="floatingInput">Username</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" />
+            <input type="text" class="form-control" id="emailInput" [(ngModel)]="register.email"/>
+            <label for="floatingInput">Email Address</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control" id="passwordInput" [(ngModel)]="register.password"/>
             <label for="floatingInput">Password</label>
           </div>
           <div class="form-check mt-3s">
@@ -54,7 +53,7 @@
             </label>
           </div>
           <div class="d-grid mt-4">
-            <button type="button" class="btn btn-secondary p-2">Sign Up</button>
+            <button type="button" class="btn btn-secondary p-2" (click)="doRegister()">Sign Up</button>
           </div>
           <hr />
           <h5 class="d-flex justify-content-center">

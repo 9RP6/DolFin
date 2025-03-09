@@ -7,6 +7,8 @@ import { SharedModule } from 'src/app/theme/shared/shared.module';
 import { BajajChartComponent } from 'src/app/theme/shared/components/apexchart/bajaj-chart/bajaj-chart.component';
 import { BarChartComponent } from 'src/app/theme/shared/components/apexchart/bar-chart/bar-chart.component';
 import { ChartDataMonthComponent } from 'src/app/theme/shared/components/apexchart/chart-data-month/chart-data-month.component';
+import { AuthService } from 'src/app/services/auth.service';
+import { UtilsService } from 'src/app/services/utils.service';
 
 @Component({
   selector: 'app-default',
@@ -15,6 +17,18 @@ import { ChartDataMonthComponent } from 'src/app/theme/shared/components/apexcha
   styleUrls: ['./default.component.scss']
 })
 export class DefaultComponent {
+  currentUser
+
+  constructor(
+    private authService: AuthService,
+    private utilService: UtilsService
+  ) {
+    console.log(this.authService.currentUser);
+    if (!this.authService.isLoggedIn) {
+      this.utilService.redirect_page_to('/guest/login')
+    }
+    this.currentUser = this.authService.getCurrentUser()
+  }
   // public method
   ListGroup = [
     {
