@@ -61,7 +61,7 @@ export default class LoginComponent implements OnInit {
 
     setTimeout(() => {
       this.errFlag = false;
-    }, 6000);
+    }, 5000);
   }
 
 }

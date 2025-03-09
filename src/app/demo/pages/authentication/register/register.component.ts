@@ -64,6 +64,6 @@ export default class RegisterComponent {
     this.errFlag = true;
     setTimeout(() => {
       this.errFlag = false;
-    }, 6000);
+    }, 5000);
   }
 }

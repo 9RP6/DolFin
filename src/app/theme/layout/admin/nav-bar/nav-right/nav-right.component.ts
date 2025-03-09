@@ -1,6 +1,7 @@
 // Angular import
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { User } from 'src/app/models/user.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { UtilsService } from 'src/app/services/utils.service';
 
@@ -14,11 +15,17 @@ import { SharedModule } from 'src/app/theme/shared/shared.module';
   styleUrls: ['./nav-right.component.scss']
 })
 export class NavRightComponent {
+  currentUser: User
 
   constructor(
     private authService: AuthService,
     private utilService: UtilsService
-  ) {}
+  ) {
+    if (!this.authService.isLoggedIn) {
+      utilService.redirect_page_to('/guest/login')
+    }
+    this.currentUser = this.authService.getCurrentUser()
+  }
 
   doLogout() {
     console.log("Logging Out");
