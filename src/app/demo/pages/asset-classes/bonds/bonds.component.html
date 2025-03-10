@@ -1,0 +1,22 @@
+<div class="bonds-container">
+    <!-- Fixed Income Description -->
+    <div class="fixed-income-description">
+      <h2>{{ fixedIncomeInfo.title }}</h2>
+      <p>{{ fixedIncomeInfo.description }}</p>
+    </div>
+  
+    <!-- Bonds List -->
+    <div class="bonds-list">
+      @for (bond of bonds; track bond) {
+        <div class="bond-card">
+          <h3>{{ bond.name }}</h3>
+          <div class="bond-details">
+            <p><strong>Yield:</strong> {{ bond.yield }}</p>
+            <p><strong>Maturity:</strong> {{ bond.maturity }}</p>
+            <p><strong>Risk:</strong> {{ bond.risk }}</p>
+          </div>
+          <button class="btn btn-primary" (click)="buyBond(bond)">Buy</button>
+        </div>
+      }
+    </div>
+  </div>

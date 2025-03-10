@@ -1,0 +1,42 @@
+<div class="equity-container">
+    <h1>Equity</h1>
+  
+    <div class="content-wrapper">
+      <!-- Stocks List on the Left -->
+      <div class="stocks-list">
+        @for (stock of stocks; track stock) {
+          <div class="stock-card">
+            <h3>{{ stock.name }} ({{ stock.symbol }})</h3>
+            <p>Price: ${{ stock.price }}</p>
+            <p>Beta: {{ stock.beta }}</p>
+            <button class="btn btn-primary" (click)="buyStock(stock)">Buy</button>
+          </div>
+        }
+      </div>
+  
+      <!-- Holdings Section on the Right -->
+      <div class="holdings-section">
+        <h3>Your Holdings</h3>
+        <table class="holdings-table">
+          <thead>
+            <tr>
+              <th>Stock</th>
+              <th>Symbol</th>
+              <th>Quantity</th>
+              <th>Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (holding of holdings; track holding) {
+              <tr>
+                <td>{{ holding.name }}</td>
+                <td>{{ holding.symbol }}</td>
+                <td>{{ holding.quantity }}</td>
+                <td>${{ holding.price }}</td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>

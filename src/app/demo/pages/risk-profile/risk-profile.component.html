@@ -1,0 +1,30 @@
+<div class="risk-profile-container">
+    <h1>Risk Profile</h1>
+    <p>Find out your risk type:</p>
+  
+    <div class="risk-info">
+      <p><strong>Type:</strong> {{ defaultRiskProfile }}</p>
+      <p><strong>Beta Range:</strong> {{ betaRange }} (Value: {{ betaValue }})</p>
+    </div>
+  
+    <div class="suggested-assets">
+      <h3>Suggested Asset Classes</h3>
+      <ul>
+        @for (asset of suggestedAssetClasses; track asset) {
+          <li>{{ asset }}</li>
+        }
+      </ul>
+    </div>
+  
+    <div class="actions">
+      <!-- Button to navigate to the risk profile form -->
+      <button class="btn btn-primary" (click)="navigateToRiskProfileForm()">
+        Update Risk Profile
+      </button>
+  
+      <!-- Button to navigate back to the dashboard -->
+      <button class="btn btn-secondary" (click)="navigateToDashboard()">
+        Go to Dashboard
+      </button>
+    </div>
+  </div>

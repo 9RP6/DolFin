@@ -1,0 +1,86 @@
+.risk-profile-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    background-color: #F5F7FA; /* Light gray background */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    font-size: 2rem;
+    color: #2A3547; /* Dark gray for headings */
+    margin-bottom: 20px;
+  }
+  
+  .risk-info {
+    margin: 20px 0;
+    padding: 15px;
+    background-color: #fff; /* White background for info box */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .risk-info p {
+    font-size: 1.2rem;
+    color: #6C757D; /* Gray for text */
+    margin: 10px 0;
+  }
+  
+  .suggested-assets {
+    margin: 20px 0;
+    padding: 15px;
+    background-color: #fff; /* White background for suggested assets */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .suggested-assets h3 {
+    font-size: 1.5rem;
+    color: #2A3547; /* Dark gray for headings */
+    margin-bottom: 10px;
+  }
+  
+  .suggested-assets ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .suggested-assets li {
+    font-size: 1.1rem;
+    color: #6C757D; /* Gray for text */
+    margin: 5px 0;
+  }
+  
+  .actions {
+    margin-top: 30px;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-primary {
+    background-color: #5D87FF; /* Primary blue */
+    color: #fff;
+  }
+  
+  .btn-primary:hover {
+    background-color: #4A6FD6; /* Darker blue on hover */
+  }
+  
+  .btn-secondary {
+    background-color: #6C757D; /* Secondary gray */
+    color: #fff;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #5A6268; /* Darker gray on hover */
+  }

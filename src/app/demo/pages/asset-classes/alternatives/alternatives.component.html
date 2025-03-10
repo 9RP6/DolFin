@@ -1,0 +1,56 @@
+<div class="alternatives-container">
+  <h1>Alternative Investments</h1>
+  <p class="description">{{ alternativeDescription }}</p>
+
+  <div class="cards">
+    <!-- Real Estate Card -->
+    <div class="card">
+      <div class="card-header">
+        <i class="fas fa-home icon"></i>
+        <h2>{{ realEstate.title }}</h2>
+      </div>
+      <div class="card-body">
+        <p>{{ realEstate.description }}</p>
+        <a [href]="realEstate.link" target="_blank" class="btn btn-link">
+          Learn More <i class="fas fa-external-link-alt"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Private Equity Card -->
+    <div class="card">
+      <div class="card-header">
+        <i class="fas fa-chart-line icon"></i>
+        <h2>{{ privateEquity.title }}</h2>
+      </div>
+      <div class="card-body">
+        <p>{{ privateEquity.description }}</p>
+        <div class="sub-card">
+          <h3>{{ privateEquity.angelInvesting.title }}</h3>
+          <p>{{ privateEquity.angelInvesting.description }}</p>
+        </div>
+        <a [href]="privateEquity.link" target="_blank" class="btn btn-link">
+          Learn More <i class="fas fa-external-link-alt"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Private Credit Card -->
+    <div class="card">
+      <div class="card-header">
+        <i class="fas fa-hand-holding-usd icon"></i>
+        <h2>{{ privateCredit.title }}</h2>
+      </div>
+      <div class="card-body">
+        <p>{{ privateCredit.description }}</p>
+        <div class="sub-card">
+          <h3>{{ privateCredit.peerToPeerLending.title }}</h3>
+          <p>{{ privateCredit.peerToPeerLending.description }}</p>
+        </div>
+        <a [href]="privateCredit.link" target="_blank" class="btn btn-link">
+          Learn More <i class="fas fa-external-link-alt"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

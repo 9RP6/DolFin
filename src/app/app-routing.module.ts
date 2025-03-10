@@ -2,6 +2,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './theme/layout/admin/admin.component';
 import { GuestComponent } from './theme/layout/guest/guest.component';
+import { RiskProfileComponent } from './demo/pages/risk-profile/risk-profile.component';
+import { EquityComponent } from './demo/pages/asset-classes/equity/equity.component';
+import { BondsComponent } from './demo/pages/asset-classes/bonds/bonds.component';
+import { AlternativesComponent } from './demo/pages/asset-classes/alternatives/alternatives.component';
 
 const routes: Routes = [
   {
@@ -28,7 +32,23 @@ const routes: Routes = [
       {
         path: 'sample-page',
         loadComponent: () => import('./demo/other/sample-page/sample-page.component')
-      }
+      },
+      {
+        path: 'risk-profile', 
+        loadComponent: () => import('./demo/pages/risk-profile/risk-profile.component').then((c) => c.RiskProfileComponent)
+      },
+      {
+        path: 'asset-classes/equity', 
+        loadComponent: () => import('./demo/pages/asset-classes/equity/equity.component').then((c) => c.EquityComponent)
+      },
+      {
+        path: 'asset-classes/bonds', 
+        component: BondsComponent
+      },
+      {
+        path: 'asset-classes/alternatives', 
+        component: AlternativesComponent
+      },
     ]
   },
   {
