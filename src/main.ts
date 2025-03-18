@@ -7,11 +7,12 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 import { AppComponent } from './app/app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 if (environment.production) {
   enableProdMode();
 }
 
 bootstrapApplication(AppComponent, {
-  providers: [importProvidersFrom(BrowserModule, AppRoutingModule, FormsModule, CommonModule), provideAnimations()]
+  providers: [importProvidersFrom(BrowserModule, AppRoutingModule, FormsModule, CommonModule, HttpClientModule), provideAnimations()]
 }).catch((err) => console.error(err));

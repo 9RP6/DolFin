@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Component, output } from '@angular/core';
 
 // project import
-import { BerryConfig } from 'src/app/app-config';
+import { BerryConfig } from 'src/app/config/app-config';
 
 import { NavLeftComponent } from './nav-left/nav-left.component';
 import { NavLogoComponent } from './nav-logo/nav-logo.component';
@@ -39,7 +39,7 @@ export class NavBarComponent {
     }
   }
 
-  
+
 
   navCollapseMob() {
     if (this.windowWidth < 1025) {

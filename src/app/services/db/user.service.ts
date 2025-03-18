@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { User, UserCreate } from '../models/user.model';
+import { User, UserCreate } from '../../models/user.model';
 
-import { v4 as uuidv4 } from 'uuid';
+import { UtilsService } from '../utils.service';
 
 @Injectable({
     providedIn: 'root'
@@ -10,22 +10,30 @@ export class UserService {
     private readonly STORAGE_KEY = 'users';
     private users: Map<string, User>;
 
-    constructor() {
-        this.users = new Map();
-        this.loadFromLocalStorage();
+    constructor(
+        private utils: UtilsService
+    ) {
+        this.load();
     }
 
-    private loadFromLocalStorage(): void {
-        const storedUsers = localStorage.getItem(this.STORAGE_KEY);
+    private load(): void {
+        const storedUsers = this.utils.getFromDB(this.STORAGE_KEY);
+        console.log("loaded from Users DB: ");
+        console.log(storedUsers)
         if (storedUsers) {
-            const parsedUsers = JSON.parse(storedUsers);
-            this.users = new Map(Object.entries(parsedUsers));
+            // const parsedUsers = JSON.parse(storedUsers);
+            this.users = new Map(Object.entries(storedUsers));
+        } else {
+            this.users = new Map()
         }
     }
 
-    private saveToLocalStorage(): void {
+    private save(): void {
+        console.log("saving to users DB:");
+        console.log(this.users)
         const usersObject = Object.fromEntries(this.users);
-        localStorage.setItem(this.STORAGE_KEY, JSON.stringify(usersObject));
+        // const usersJSON = JSON.stringify(usersObject);
+        this.utils.setToDB(this.STORAGE_KEY, usersObject)
     }
 
     // Get all users
@@ -41,14 +49,14 @@ export class UserService {
     // Add or update user
     setUser(user: User): void {
         this.users.set(user.id, user);
-        this.saveToLocalStorage();
+        this.save();
     }
 
     // Delete user
     deleteUser(id: string): boolean {
         const deleted = this.users.delete(id);
         if (deleted) {
-            this.saveToLocalStorage();
+            this.save();
         }
         return deleted;
     }
@@ -68,7 +76,7 @@ export class UserService {
         const user = this.users.get(id);
         if (user) {
             user[property] = value;
-            this.saveToLocalStorage();
+            this.save();
             return true;
         }
         return false;

@@ -26,6 +26,10 @@ const routes: Routes = [
         loadComponent: () => import('./demo/elements/typography/typography.component')
       },
       {
+        path: 'initiation',
+        loadComponent: () => import('./demo/dashboard/initiation/initiation.component').then((c) => c.InitiationComponent)
+      },
+      {
         path: 'color',
         loadComponent: () => import('./demo/elements/element-color/element-color.component')
       },

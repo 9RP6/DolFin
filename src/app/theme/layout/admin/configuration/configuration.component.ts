@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit, Renderer2 } from '@angular/core';
-import { BerryConfig } from 'src/app/app-config';
+import { BerryConfig } from 'src/app/config/app-config';
 
 @Component({
   selector: 'app-configuration',

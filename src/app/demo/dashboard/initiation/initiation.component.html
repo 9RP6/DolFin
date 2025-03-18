@@ -1,0 +1,36 @@
+<div class="row">
+    <div class="col-sm-12">
+        <app-card cardTitle="Initiation">
+            <p>This page is designed to help us better understand your risk profile. Please fill out the form below with as much detail as possible.</p>
+            <form>
+                <div class="form-floating mb-3">
+                    <label for="ageRange">Age Range</label>
+                    <select class="form-control" id="ageRange" name="ageRange" [(ngModel)]="riskProfile.ageRange">
+                        <option value=""></option>
+                        <option value="Under 18">Under 18</option>
+                        <option value="18-24">18-24</option>
+                        <option value="25-34">25-34</option>
+                        <option value="35-44">35-44</option>
+                        <option value="45-54">45-54</option>
+                        <option value="55-64">55-64</option>
+                        <option value="65 or older">65 or older</option>
+                    </select>
+                </div>
+                <div class="form-floating mb-3">
+                    <label for="previousInvestments">Previous Investments</label>
+                    <input type="text" class="form-control" id="previousInvestments" name="previousInvestments" placeholder="Enter your previous investments" [(ngModel)]="riskProfile.savings">
+                </div>
+                <div class="form-floating mb-3">
+                    <label for="financialGoal">Financial Goal</label>
+                    <input type="text" class="form-control" id="financialGoal" name="financialGoal" placeholder="Enter your financial goal" [(ngModel)]="riskProfile.financialGoal">
+                </div>
+                <div class="form-floating mb-3">
+                    <label for="currentIncome">Current Income</label>
+                    <input type="text" class="form-control" id="currentIncome" name="currentIncome" placeholder="Enter your current income" [(ngModel)]="riskProfile.income">
+                </div>
+                <!-- Add more form fields as needed -->
+                <button type="submit" class="btn btn-primary" (click)="doSubmit()">Submit</button>
+            </form>
+        </app-card>
+    </div>
+</div>

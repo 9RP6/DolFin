@@ -23,7 +23,7 @@
           </div>
         </div>
         <span class="text-white d-block f-34 f-w-500 my-2">
-          $500.00
+          {{this.totalSavings.totalAmount | currency }}
           <i class="ti ti-circle-arrow-up-right opacity-50"></i>
         </span>
         <p class="mb-0 opacity-50">Total Earning</p>
@@ -47,8 +47,8 @@
             <i class="text-white ti ti-layout-board-split f-24"></i>
           </div>
           <div class="ms-2">
-            <h4 class="text-white f-w-600 mb-1">$203k</h4>
-            <p class="mb-0 opacity-50 text-sm">Total Income</p>
+            <h4 class="text-white f-w-600 mb-1">{{ this.totalSavings.totalAmount | currency }}</h4>
+            <p class="mb-0 opacity-50 text-sm">Total Savings</p>
           </div>
         </div>
       </div>
@@ -61,7 +61,7 @@
           </div>
           <div class="ms-2">
             <h4 class="f-w-600 mb-1">$203k</h4>
-            <p class="mb-0 opacity-50 text-sm">Total Income</p>
+            <p class="mb-0 opacity-50 text-sm">Total Investment</p>
           </div>
         </div>
       </div>

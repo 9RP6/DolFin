@@ -2,7 +2,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { UserService } from 'src/app/services/user.service';
 import { UtilsService } from 'src/app/services/utils.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { CommonModule } from '@angular/common';
@@ -19,7 +18,8 @@ export default class LoginComponent implements OnInit {
   errMsg: string;
   login = {
     "email": "",
-    "password": ""
+    "password": "",
+    "remember": true
   }
 
   constructor(
@@ -31,6 +31,7 @@ export default class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.authService.isLoggedIn)
     if (this.authService.isLoggedIn) {
       this.utilService.redirect_page_to('/default')
     }
@@ -45,8 +46,13 @@ export default class LoginComponent implements OnInit {
     }
     if (this.errFlag) return;
 
-    let user = this.authService.login(this.login.email, this.login.password)
-    if (user) {
+    let user = this.authService.login(
+      this.login.email,
+      this.login.password,
+      this.login.remember
+    )
+    
+    if (user.user) {
       this.utilService.redirect_page_to('/default')
     } else {
       this.handleError("User could not be found!");

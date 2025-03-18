@@ -4,9 +4,8 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
-import { User, UserCreate } from 'src/app/models/user.model';
+import { UserCreate } from 'src/app/models/user.model';
 import { AuthService } from 'src/app/services/auth.service';
-import { UserService } from 'src/app/services/user.service';
 import { UtilsService } from 'src/app/services/utils.service';
 
 @Component({
@@ -51,7 +50,7 @@ export default class RegisterComponent {
 
     let newUser = this.authService.register(this.register)
     console.log(newUser);
-    if (newUser.err == "") {
+    if (!newUser.err) {
       this.utilService.redirect_page_to("/default")
     } else {
       this.handleError(newUser.err)

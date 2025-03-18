@@ -159,7 +159,7 @@ export const NavigationItems: NavigationItem[] = [
     id: 'asset-classes',
     title: 'Asset Classes',
     type: 'collapse',
-    icon: 'ti ti-layers',
+    icon: 'ti ti-layout',
     children: [
       {
         id: 'equity',
