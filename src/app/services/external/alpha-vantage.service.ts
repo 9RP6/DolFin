@@ -20,7 +20,7 @@ export class AlphaVantageService {
   // Event emitter for top gainers/losers data
   topGainersEmitter = new EventEmitter<CachedValue>();
   // Cached value for top gainers/losers data
-  private topGainersCache: CachedValue = { function: 'TOP_GAINERS_LOSERS' }
+  topGainersCache: CachedValue = { function: 'TOP_GAINERS_LOSERS' }
   bindings
 
   constructor(
@@ -87,12 +87,13 @@ export class AlphaVantageService {
       response.subscribe((data) => {
         value.data = data;
         value.lastUpdated = currentTime;
+        this.topGainersCache = value
         this.saveCache(value.function, value);
-        // Emit the updated value
-        if (value.function === 'TOP_GAINERS_LOSERS') {
-          this.topGainersEmitter.emit(value);
-        }
       });
+    }
+    // Emit the updated value
+    if (value.function === 'TOP_GAINERS_LOSERS') {
+      this.topGainersEmitter.emit(value);
     }
     return value
   }

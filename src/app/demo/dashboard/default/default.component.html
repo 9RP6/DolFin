@@ -26,7 +26,7 @@
           {{this.totalSavings.totalAmount | currency }}
           <i class="ti ti-circle-arrow-up-right opacity-50"></i>
         </span>
-        <p class="mb-0 opacity-50">Total Earning</p>
+        <p class="mb-0 opacity-50">Day's Gain</p>
       </div>
     </div>
   </div>
@@ -95,24 +95,22 @@
           <app-bajaj-chart />
         </div>
         <ul class="list-group list-group-flush">
-          @for (list of ListGroup; track list) {
-            <li class="list-group-item px-0 {{ list.space }}">
+            <li *ngFor="let stock of topGainersLosers.data.most_actively_traded.slice(0, 6)" class="list-group-item px-0">
               <div class="row align-items-start">
                 <div class="col">
-                  <h5 class="mb-0">{{ list.name }}</h5>
-                  <small class="{{ list.color }}">{{ list.profit }}</small>
+                  <h5 class="mb-0">{{ stock.ticker }}</h5>
+                  <small class="{{ stock.change_amount > 0 ? 'text-success': 'text-danger'}}">{{ stock.price }}</small>
                 </div>
                 <div class="col-auto">
                   <h4 class="mb-0">
-                    {{ list.invest }}
-                    <span class="ms-2 align-top avatar avatar-xxs {{ list.bgColor }}">
-                      <i class="{{ list.icon }} {{ list.color }}"></i>
+                    {{ stock.change_amount }}
+                    <span class="ms-2 align-top avatar avatar-xxs {{ stock.change_amount > 0 ? 'bg-light-success': 'bg-light-danger'}}">
+                      <i class="ti {{ stock.change_amount > 0 ? 'ti-chevron-up': 'ti-chevron-down'}} {{ stock.change_amount > 0 ? 'text-success': 'text-danger'}}"></i>
                     </span>
                   </h4>
                 </div>
               </div>
             </li>
-          }
         </ul>
         <div class="text-center">
           <a href="javascript:" class="b-b-primary text-primary f-w-500">
